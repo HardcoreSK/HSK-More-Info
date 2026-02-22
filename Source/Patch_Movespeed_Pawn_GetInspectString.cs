@@ -1,17 +1,16 @@
-﻿using Verse;
-using RimWorld;
-using System.Text;
-using HarmonyLib;
+﻿using System.Text;
 using CombatExtended;
+using HarmonyLib;
+using RimWorld;
+using Verse;
 using Verse.AI;
 
 namespace MoreInfo
 {
-    [HarmonyPatch(typeof(Pawn))]
-    [HarmonyPatch("GetInspectString")]
+    [HarmonyPatch(typeof(Pawn), nameof(Pawn.GetInspectString))]
     public class Patch_Movespeed_Pawn_GetInspectString
     {
-        static void Postfix (Pawn __instance, ref string __result)
+        public static void Postfix(Pawn __instance, ref string __result)
         {
             if (MoreInfo_Settings.showMovingSpeed)
             {
@@ -24,7 +23,7 @@ namespace MoreInfo
                 stringBuilder.AppendInNewLine(speedText);
 
                 __result = stringBuilder.ToString().TrimEndNewlines();
-            }   
+            }
         }
     }
 }

@@ -1,0 +1,36 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net472</TargetFramework>
+    <RootNamespace>MoreInfo</RootNamespace>
+    <OutputPath>..\Assemblies</OutputPath>
+    <AssemblyName>HSK_MoreInfo</AssemblyName>
+    <Deterministic>true</Deterministic>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Krafs.Publicizer" Version="2.3.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Krafs.Rimworld.Ref" Version="1.6.*" />
+    <PackageReference Include="Lib.Harmony" Version="2.4.2" ExcludeAssets="runtime" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Publicize Include="Assembly-CSharp:Verse.AI.Pawn_PathFollower.CostToMoveIntoCell" />
+	<Publicize Include="Assembly-CSharp:RimWorld.Pawn_NeedsTracker.pawn" />
+    <Publicize Include="Assembly-CSharp:RimWorld.Pawn_NeedsTracker.ShouldHaveNeed" />
+	<Publicize Include="CombatExtended:CombatExtended.CompSuppressable.maxSuppression" />
+    <Publicize Include="CombatExtended:CombatExtended.CompSuppressable.SuppressionThreshold" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="CombatExtended" Private="false">
+      <HintPath>libs\CombatExtended.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>
